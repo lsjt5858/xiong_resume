@@ -4,6 +4,7 @@ import { Badge } from "./ui/badge";
 import { Mail, Phone, MapPin, Download, Copy, QrCode } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { useCallback } from "react";
+import avatar from "../assets/xiong.JPG";
 
 export function Header() {
   const handleDownload = useCallback(() => {
@@ -13,10 +14,10 @@ export function Header() {
 
   const handleCopy = useCallback(async () => {
     try {
-      await navigator.clipboard.writeText("weixin: test_wechat_123");
-      alert("微信号已复制：test_wechat_123");
+      await navigator.clipboard.writeText("Lx_15888888888");
+      alert("微信号已复制：Lx_15888888888");
     } catch (e) {
-      alert("复制失败，请手动复制：test_wechat_123");
+      alert("复制失败，请手动复制：Lx_15888888888");
     }
   }, []);
 
@@ -28,16 +29,16 @@ export function Header() {
           <div className="flex-shrink-0">
             <Avatar className="w-32 h-32 border-4 border-white shadow-lg">
               <AvatarImage 
-                src="https://images.unsplash.com/photo-1576558656222-ba66febe3dec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGhlYWRzaG90fGVufDF8fHx8MTc1NzExOTExMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
+                src={avatar}
                 alt="个人头像" 
               />
-              <AvatarFallback>李测试</AvatarFallback>
+              <AvatarFallback>刘雄</AvatarFallback>
             </Avatar>
           </div>
 
           {/* Info Section */}
           <div className="flex-grow text-center md:text-left">
-            <h1 className="mb-2">李测试</h1>
+            <h1 className="mb-2">刘雄</h1>
             <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
               <Badge variant="secondary">高级测试工程师</Badge>
               <Badge variant="outline">自动化测试专家</Badge>
@@ -52,11 +53,11 @@ export function Header() {
             <div className="flex flex-wrap gap-4 justify-center md:justify-start mb-6 text-sm text-muted-foreground">
               <div className="flex items-center gap-1">
                 <Mail className="w-4 h-4" />
-                litest@example.com
+                15988107785@163.com
               </div>
               <div className="flex items-center gap-1">
                 <Phone className="w-4 h-4" />
-                +86 138 0000 0000
+                15988107785
               </div>
               <div className="flex items-center gap-1">
                 <MapPin className="w-4 h-4" />
@@ -83,14 +84,14 @@ export function Header() {
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <QrCode className="w-5 h-5" />
-                      <span className="font-medium">微信号：test_wechat_123</span>
+                      <span className="font-medium">微信号：Lx_15888888888</span>
                     </div>
                     <div className="flex gap-2">
                       <Button size="sm" onClick={handleCopy}>
                         <Copy className="w-4 h-4 mr-1" /> 复制微信号
                       </Button>
                     </div>
-                    <p className="text-xs text-muted-foreground">也可以通过邮箱与我联系：litest@example.com</p>
+                    <p className="text-xs text-muted-foreground">也可以通过邮箱与我联系：15988107785@163.com</p>
                   </div>
                 </DialogContent>
               </Dialog>

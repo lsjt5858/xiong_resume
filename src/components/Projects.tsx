@@ -4,6 +4,8 @@ import { Button } from "./ui/button";
 import { ExternalLink, Github, Calendar, Users } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
+const REPO = "https://github.com/lsjt5858/xiong_resume.git";
+
 export function Projects() {
   const projects = [
     {
@@ -11,7 +13,7 @@ export function Projects() {
       description: "基于Selenium Grid和Jenkins构建的分布式自动化测试平台，支持Web、移动端和API测试，提供实时测试报告和质量分析。",
       image: "https://images.unsplash.com/photo-1598023707260-bb5987bf06e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMHRlc3RpbmclMjBhdXRvbWF0aW9uJTIwZGFzaGJvYXJkfGVufDF8fHx8MTc1NzE2OTE3OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       technologies: ["Selenium", "Jenkins", "Docker", "TestNG", "Allure", "Java"],
-      githubUrl: "#",
+      githubUrl: REPO,
       liveUrl: "#",
       date: "2024年",
       team: "4人测试团队",
@@ -27,7 +29,7 @@ export function Projects() {
       description: "使用JMeter和Grafana构建的性能测试解决方案，集成了实时监控、压力测试和容量规划功能，支持微服务架构性能分析。",
       image: "https://images.unsplash.com/photo-1709601414310-eaa6103cf186?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXJmb3JtYW5jZSUyMHRlc3RpbmclMjBtb25pdG9yaW5nfGVufDF8fHx8MTc1NzE2OTE4NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       technologies: ["JMeter", "Grafana", "InfluxDB", "K6", "Python", "Docker"],
-      githubUrl: "#",
+      githubUrl: REPO,
       liveUrl: "#",
       date: "2024年",
       team: "独立开发",
@@ -43,7 +45,7 @@ export function Projects() {
       description: "基于RestAssured和Python开发的API自动化测试框架，支持RESTful和GraphQL接口测试，包含数据驱动和参数化测试功能。",
       image: "https://images.unsplash.com/photo-1551033406-611cf9a28f67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZXN0JTIwYXV0b21hdGlvbiUyMGZyYW1ld29yayUyMGNvZGV8ZW58MXx8fHwxNzU3MTY5MTgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       technologies: ["Python", "RestAssured", "Pytest", "Postman", "Newman", "GitLab CI"],
-      githubUrl: "#",
+      githubUrl: REPO,
       liveUrl: "#",
       date: "2023年",
       team: "2人团队",
@@ -82,11 +84,15 @@ export function Projects() {
                 <div className="flex items-start justify-between gap-2">
                   <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
                   <div className="flex gap-2">
-                    <Button size="sm" variant="ghost" className="p-1 h-auto">
-                      <Github className="w-4 h-4" />
+                    <Button size="sm" variant="ghost" className="p-1 h-auto" asChild>
+                      <a href={project.githubUrl} target="_blank" rel="noreferrer">
+                        <Github className="w-4 h-4" />
+                      </a>
                     </Button>
-                    <Button size="sm" variant="ghost" className="p-1 h-auto">
-                      <ExternalLink className="w-4 h-4" />
+                    <Button size="sm" variant="ghost" className="p-1 h-auto" asChild>
+                      <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
                     </Button>
                   </div>
                 </div>
@@ -137,13 +143,17 @@ export function Projects() {
 
                 {/* 操作按钮 */}
                 <div className="flex gap-2 pt-2">
-                  <Button size="sm" className="flex-1">
-                    <ExternalLink className="w-3 h-3 mr-1" />
-                    查看项目
+                  <Button size="sm" className="flex-1" asChild>
+                    <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                      <ExternalLink className="w-3 h-3 mr-1" />
+                      查看项目
+                    </a>
                   </Button>
-                  <Button size="sm" variant="outline">
-                    <Github className="w-3 h-3 mr-1" />
-                    源码
+                  <Button size="sm" variant="outline" asChild>
+                    <a href={project.githubUrl} target="_blank" rel="noreferrer">
+                      <Github className="w-3 h-3 mr-1" />
+                      源码
+                    </a>
                   </Button>
                 </div>
               </CardContent>
@@ -153,9 +163,11 @@ export function Projects() {
 
         {/* 更多项目链接 */}
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
-            <Github className="w-4 h-4 mr-2" />
-            查看更多项目
+          <Button variant="outline" size="lg" asChild>
+            <a href={REPO} target="_blank" rel="noreferrer">
+              <Github className="w-4 h-4 mr-2" />
+              查看更多项目
+            </a>
           </Button>
         </div>
       </div>
