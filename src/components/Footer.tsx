@@ -15,7 +15,7 @@ import {
 
 export function Footer() {
   const socialLinks = [
-    { icon: <Github className="w-5 h-5" />, label: "GitHub", href: "#" },
+    { icon: <Github className="w-5 h-5" />, label: "GitHub", href: "https://github.com/lsjt5858/xiong_resume.git" },
     { icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn", href: "#" },
     { icon: <Twitter className="w-5 h-5" />, label: "Twitter", href: "#" },
     { icon: <MessageCircle className="w-5 h-5" />, label: "微信", href: "#" }
@@ -44,18 +44,18 @@ export function Footer() {
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* 个人信息 */}
           <div className="space-y-4">
-            <h3>李测试</h3>
+            <h3>刘雄</h3>
             <p className="text-muted-foreground text-sm">
               高级测试工程师，专注于质量保障和自动化测试。热爱测试技术分享和开源测试工具开发。
             </p>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Mail className="w-4 h-4" />
-                litest@example.com
+                15988107785@163.com
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone className="w-4 h-4" />
-                +86 138 0000 0000
+                15988107785
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4" />
@@ -124,7 +124,7 @@ export function Footer() {
         {/* 底部信息 */}
         <div className="py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-1 text-sm text-muted-foreground">
-            <span>© 2024 李测试. 用</span>
+            <span>© 2024 刘雄. 用</span>
             <Heart className="w-4 h-4 text-red-500" />
             <span>制作</span>
           </div>
@@ -138,8 +138,11 @@ export function Footer() {
                 size="sm"
                 className="p-2 h-auto hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label={social.label}
+                asChild
               >
-                {social.icon}
+                <a href={social.href} target="_blank" rel="noreferrer">
+                  {social.icon}
+                </a>
               </Button>
             ))}
           </div>
