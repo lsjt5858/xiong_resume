@@ -3,7 +3,6 @@ import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Knowledge } from "./components/Knowledge";
 import { Footer } from "./components/Footer";
-import { Resume } from "./components/Resume";
 
 export default function App() {
   return (
@@ -16,9 +15,6 @@ export default function App() {
       
       {/* 项目展示 */}
       <Projects />
-
-      {/* 在线简历 */}
-      <Resume />
       
       {/* 知识分享 */}
       <Knowledge />

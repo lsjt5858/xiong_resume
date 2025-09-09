@@ -5,9 +5,3 @@ declare module "*.JPG" {
   const src: string;
   export default src;
 }
-
-// PDF 资源类型声明
-declare module "*.pdf" {
-  const src: string;
-  export default src;
-}
