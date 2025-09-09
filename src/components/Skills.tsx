@@ -81,7 +81,8 @@ export function Skills() {
 
   const [categories, setCategories] = useState<Category[]>(initialCategories);
   const [editing, setEditing] = useState(false);
-
+  const isDev = import.meta.env.DEV;
+  
   const addSkill = (catIdx: number) => {
     const next = [...categories];
     next[catIdx].skills.push({ name: "新技能", level: 60 });
@@ -117,12 +118,14 @@ export function Skills() {
               多年的测试经验让我掌握了软件测试的各个环节，从功能测试到性能测试，从手工测试到自动化测试，都能提供专业的质量保障。
             </p>
           </div>
-          <div className="no-print">
-            <Button variant={editing ? "secondary" : "outline"} onClick={() => setEditing((v) => !v)}>
-              {editing ? <Save className="w-4 h-4 mr-2" /> : <Edit3 className="w-4 h-4 mr-2" />}
-              {editing ? "保存" : "编辑技能"}
-            </Button>
-          </div>
+          {isDev && (
+            <div className="no-print">
+              <Button variant={editing ? "secondary" : "outline"} onClick={() => setEditing((v) => !v)}>
+                {editing ? <Save className="w-4 h-4 mr-2" /> : <Edit3 className="w-4 h-4 mr-2" />}
+                {editing ? "保存" : "编辑技能"}
+              </Button>
+            </div>
+          )}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -136,7 +139,7 @@ export function Skills() {
                   <Input
                     className={editing ? "h-9" : "h-9 pointer-events-none bg-transparent border-0 p-0 text-base"}
                     value={category.title}
-                    readOnly={!editing}
+                    readOnly={!isDev || !editing}
                     onChange={(e) => {
                       const next = [...categories];
                       next[index].title = e.target.value;
@@ -152,17 +155,17 @@ export function Skills() {
                       <Input
                         className={editing ? "h-8" : "h-8 pointer-events-none bg-transparent border-0 p-0 text-sm"}
                         value={skill.name}
-                        readOnly={!editing}
+                        readOnly={!isDev || !editing}
                         onChange={(e) => updateSkill(index, skillIndex, { name: e.target.value })}
                       />
                       <span className="text-xs text-muted-foreground w-12 text-right">{skill.level}%</span>
-                      {editing && (
+                      {isDev && editing && (
                         <Button variant="ghost" size="sm" onClick={() => removeSkill(index, skillIndex)}>
                           <Trash2 className="w-4 h-4" />
                         </Button>
                       )}
                     </div>
-                    {editing ? (
+                    {isDev && editing ? (
                       <Slider
                         value={[skill.level]}
                         min={0}
@@ -175,7 +178,7 @@ export function Skills() {
                     )}
                   </div>
                 ))}
-                {editing && (
+                {isDev && editing && (
                   <Button variant="outline" size="sm" className="w-full" onClick={() => addSkill(index)}>
                     <Plus className="w-4 h-4 mr-1" /> 添加技能
                   </Button>
@@ -185,7 +188,7 @@ export function Skills() {
           ))}
         </div>
 
-        {editing && (
+        {isDev && editing && (
           <div className="mt-6 no-print">
             <Button onClick={addCategory}>
               <Plus className="w-4 h-4 mr-1" /> 添加分类
